@@ -49,15 +49,19 @@ jobs:
       - name: results
         uses: actions/upload-artifact@v4
         with:
-          name: results.txt
+          name: results
           path: results.txt
  
-  # job_2: 
-  #   name: Multiply by 9 
-  #   needs: job_1 
-  #   runs-on: windows-latest 
-  #   steps: 
-  #     - shell: bash 
-  #       run: | 
-  #         value=`cat NAZWA_PLIKU_Z_ARTEFAKTU` 
-  #         echo $(expr $value \* 9)
+  job_2: 
+    name: Multiply by 9 
+    needs: job_1 
+    runs-on: windows-latest 
+    steps: 
+      - name: results
+        uses: actions/download-artifact@v4
+        with:
+          name: results
+      - shell: bash 
+        run: | 
+          value=`cat results.txt` 
+          echo $(expr $value \* 9)
