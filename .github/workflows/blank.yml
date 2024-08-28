@@ -64,4 +64,4 @@ jobs:
       - shell: bash 
         run: | 
           value=`cat results.txt` 
-          echo $(expr $value \* 9)
+          echo "Result: $(expr $value \* 9)"
