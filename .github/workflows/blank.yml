@@ -26,12 +26,14 @@ jobs:
         id: sentence_maker 
         run: | 
             echo "COLOR=GREEN" >> "$GITHUB_OUTPUT"
+            echo $COLOR
+            echo $GITHUB_OUTPUT
  
   consumer: 
     runs-on: ubuntu-latest 
     needs: producer
     env:
-     PRODUCER_COLOR: ${{ needs.producer.outputs.sentence_maker }}
+     PRODUCER_COLOR: ${{ needs.producer.outputs.PRODUCER_COLOR }}
     steps: 
       - name: Print the message 
         run: | 
