@@ -39,13 +39,18 @@ jobs:
         run: | 
           echo "Color: $PRODUCER_COLOR"
  
-  # job_1: 
-  #   name: Add 3 and 7 
-  #   runs-on: ubuntu-latest 
-  #   steps: 
-  #     - shell: bash 
-  #       run: | 
-  #         expr 3 + 7 > NAZWA_PLIKU_Z_WYNIKIEM 
+  job_1: 
+    name: Add 3 and 7 
+    runs-on: ubuntu-latest 
+    steps: 
+      - shell: bash 
+        run: | 
+          expr 3 + 7 > results.txt 
+      - name: results
+        uses: actions/upload-artifact@v4
+        with:
+          name: results.txt
+          path: results.txt
  
   # job_2: 
   #   name: Multiply by 9 
