@@ -37,7 +37,7 @@ jobs:
     steps: 
       - name: Print the message 
         run: | 
-          echo $PRODUCER_COLOR 
+          echo "Color: $PRODUCER_COLOR"
  
   # job_1: 
   #   name: Add 3 and 7 
